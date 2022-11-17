@@ -10,8 +10,8 @@ function getFourDigitNumber0237(int $n): array
     $fract = $rest % 10000;
 
     $d1 = (int)$fract / 1000 % 10;
-    $d2 = (int)($fract / 100) % 10;
-    $d3 = (int)($fract / 10) % 10;
+    $d2 = (int)$fract / 100 % 10;
+    $d3 = (int)$fract / 10 % 10;
     $d4 = $fract % 10;
 
     if (($d1 === 0 || $d1 === 2 || $d1 === 3 || $d1 === 7)
