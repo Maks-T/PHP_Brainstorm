@@ -4,7 +4,7 @@
  * В массиве А(N) подсчитать количество различных элементов.
  */
 
- function countDifferentElem(array $arr) 
+ function countDifferentElem(array $arr): int
  {
   $res = [];
   $li = count($arr);
@@ -16,8 +16,7 @@
 
     for ($j = 0; $j<$lj; $j++) {
       if ($arr[$i] === $res[$j]) {
-        $isExist = false;
-        echo  $res[$j] . '<br>';
+        $isExist = false;      
       }
     }
 
