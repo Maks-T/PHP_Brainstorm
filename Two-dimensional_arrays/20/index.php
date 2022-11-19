@@ -33,21 +33,6 @@ function trasformMatrix(array $arr): array
   return $arr;
 }
 
-function sortBubble(array $arr): array
-{
-  $l = count($arr);
-
-  for ($i = 0; $i < $l; $i++) {
-    for ($j = 1; $j < $l - $i; $j++) {
-      if ($arr[$j] < $arr[$j - 1]) {
-        [$arr[$j], $arr[$j - 1]] = [$arr[$j - 1], $arr[$j]];
-      }
-    }
-  }
-
-  return $arr;
-}
-
 echo '<pre>';
 print_r(
   trasformMatrix([
