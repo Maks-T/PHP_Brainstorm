@@ -5,9 +5,29 @@
  *  массива так, чтобы отрицательные элементы находились на главной диагонали.
  */
 
-function f(array $arr ) 
+/** @var array[] $arr */
+function trasformMatrix(array $arr): array
 {
-  
-  return 
+  $l = count($arr);
+
+  for ($i = 0; $i < $l; $i++) {
+    for ($j = 0; $j < $l; $j++) {
+      if ($arr[$i][$j] < 0) {
+        [$arr[$i][$j], $arr[$i][$i]] = [$arr[$i][$i], $arr[$i][$j]];
+      }
+    }
+  }
+
+  return $arr;
 }
 
+echo '<pre>';
+print_r(
+  trasformMatrix([
+    [1, -2, 3, 3],
+    [-4, 5, 6, 9],
+    [7, 8, -9, 6],
+    [7, 8, 1, -6]
+  ])
+);
+echo '</pre>';
