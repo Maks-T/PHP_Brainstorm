@@ -10,7 +10,7 @@ class Combinator
 {
 
   function __construct(string $str, int $length)
-  {
+  {    
     $this->arr = str_split($str);
     $this->length = $length;
     $this->perms = [];
@@ -20,15 +20,18 @@ class Combinator
   public function combine(): void
   {
     try {
-
+      if (count($this->arr)<$this->length) {
+        throw new Exception('Длина комбинация больше строки!');
+      }
 
       $this->permutate($this->arr, 0);
-
-      $this->perms = array_map(fn ($elem) => implode('', $elem), $this->perms);
-
+      $this->perms = array_map(fn($elem) => implode('', $elem), $this->perms);
       $this->print($this->perms);
+
     } catch (Exception $e) {
+
       $this->print($e->getMessage());
+
     }
   }
 
@@ -53,12 +56,6 @@ class Combinator
     echo '<pre>';
     print_r($data);
     echo '</pre>';
-  }
-
-  private function fact($n)
-  {
-    if ($n === 0) return 1;
-    return $n * $this->fact($n - 1);
   }
 }
 
